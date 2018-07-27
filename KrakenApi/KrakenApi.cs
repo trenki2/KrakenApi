@@ -1680,7 +1680,7 @@ namespace KrakenApi
             if (asset != null)
                 param.Add("asset", asset);
 
-            var res = QueryPrivate("TradeBalance");
+            var res = QueryPrivate("TradeBalance", param);
             var ret = JsonConvert.DeserializeObject<GetTradeBalanceResponse>(res);
             if (ret.Error.Count != 0)
                 throw new KrakenException(ret.Error[0], ret);
